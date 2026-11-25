@@ -1,0 +1,8 @@
+{
+    "name": "sinal-pequenos-negocios",
+    "version": "1.0.0",
+    "description": "Protótipo do SINAL - Sistema Inteligente de Organização de Pequenos Negócios",
+    "main": "server.js",
+    "scripts": { "start": "node server.js", "dev": "node --watch server.js" },
+    "dependencies": { "express": "^4.21.2" }
+  }
