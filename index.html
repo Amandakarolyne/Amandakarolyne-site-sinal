@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>SINAL | Inteligência para pequenos negócios</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">S</span><div><strong>SINAL</strong><small>GESTÃO INTELIGENTE</small></div></div>
+    <div class="workspace"><span class="dot"></span> Cafeteria Exemplo</div>
+    <nav>
+      <a class="nav-link active" href="#inicio">▦ <span>Visão geral</span></a>
+      <a class="nav-link" href="#produtos">▤ <span>Produtos</span></a>
+      <a class="nav-link" href="#vendas">↗ <span>Registrar venda</span></a>
+      <a class="nav-link" href="#alertas">◎ <span>Alertas</span><b id="alert-count">0</b></a>
+      <a class="nav-link" href="#decisoes">✧ <span>Decisões</span></a>
+    </nav>
+    <div class="sidebar-bottom"><div class="avatar">CE</div><div><strong>Meu negócio</strong><small>Plano demonstração</small></div></div>
+  </aside>
+
+  <main class="main" id="inicio">
+    <header class="topbar"><div><span class="eyebrow">SEXTA-FEIRA, 27 DE NOVEMBRO</span><h1>Visão geral</h1></div><div class="top-actions"><span class="status"><i></i> Sistema atualizado</span><div class="avatar">CE</div></div></header>
+    <section class="welcome">
+      <div><p class="eyebrow light">SEU NEGÓCIO, EM FOCO</p><h2>Vamos observar os sinais?</h2><p>Acompanhe os dados e descubra o que merece sua atenção hoje.</p></div>
+      <div class="welcome-icon">⌁</div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card"><div class="stat-top"><span>Produtos cadastrados</span><span class="stat-icon purple">▤</span></div><strong id="stat-products">—</strong><small>Itens no seu catálogo</small></article>
+      <article class="stat-card"><div class="stat-top"><span>Unidades vendidas</span><span class="stat-icon blue">↗</span></div><strong id="stat-sales">—</strong><small>Nos registros cadastrados</small></article>
+      <article class="stat-card"><div class="stat-top"><span>Sinais de atenção</span><span class="stat-icon yellow">!</span></div><strong id="stat-attention">—</strong><small>Precisam ser acompanhados</small></article>
+      <article class="stat-card"><div class="stat-top"><span>Sinais críticos</span><span class="stat-icon red">⚑</span></div><strong id="stat-critical">—</strong><small>Verifique com prioridade</small></article>
+    </section>
+
+    <div class="content-grid">
+      <section class="panel" id="alertas"><div class="panel-heading"><div><p class="eyebrow">DETECTOR DE SINAIS</p><h3>O que está mudando?</h3></div><span class="live-tag"><i></i> Análise automática</span></div><div id="alerts-list" class="alerts-list"><p class="muted">Carregando análise...</p></div></section>
+      <section class="panel insight-panel"><p class="eyebrow">COMO FUNCIONA</p><h3>Dados que viram decisões.</h3><p>O SINAL compara os registros mais recentes com os anteriores e destaca variações que podem merecer atenção.</p><div class="mini-steps"><div><span>01</span><p><b>Registre</b><small>Cadastre produtos e vendas.</small></p></div><div><span>02</span><p><b>Observe</b><small>Veja os sinais encontrados.</small></p></div><div><span>03</span><p><b>Decida</b><small>Registre o que foi feito.</small></p></div></div></section>
+    </div>
+
+    <section class="panel lower-panel" id="produtos"><div class="panel-heading"><div><p class="eyebrow">CATÁLOGO</p><h3>Seus produtos</h3></div><button class="btn btn-primary" id="show-product-form">+ Novo produto</button></div>
+      <form id="product-form" class="inline-form hidden"><input name="name" placeholder="Nome do produto" required><input name="category" placeholder="Categoria"><input name="price" type="number" min="0" step=".01" placeholder="Preço (R$)" required><input name="stock" type="number" min="0" placeholder="Estoque"><button class="btn btn-primary">Salvar</button></form>
+      <div class="table-wrap"><table><thead><tr><th>Produto</th><th>Categoria</th><th>Preço</th><th>Estoque</th></tr></thead><tbody id="products-table"></tbody></table></div>
+    </section>
+
+    <section class="two-panels">
+      <section class="panel" id="vendas"><div class="panel-heading"><div><p class="eyebrow">MOVIMENTAÇÃO</p><h3>Registrar venda</h3></div></div>
+        <form id="sale-form" class="stack-form"><label>Produto<select name="productId" id="sale-product" required></select></label><div class="form-row"><label>Quantidade<input name="quantity" type="number" min="1" step="1" placeholder="Ex.: 3" required></label><label>Data<input name="date" type="date" id="sale-date"></label></div><button class="btn btn-primary">Adicionar venda</button></form>
+      </section>
+      <section class="panel" id="decisoes"><div class="panel-heading"><div><p class="eyebrow">PLANO DE AÇÃO</p><h3>Registrar uma decisão</h3></div></div>
+        <form id="decision-form" class="stack-form"><label>Sinal relacionado<input name="alertTitle" placeholder="Ex.: Queda nas vendas"></label><label>O que foi feito?<textarea name="action" rows="2" placeholder="Descreva a ação tomada..." required></textarea></label><label>Resultado<select name="result"><option>Em acompanhamento</option><option>Melhorou</option><option>Não houve mudança</option><option>Piorou</option></select></label><button class="btn btn-dark">Salvar decisão</button></form>
+        <div id="decisions-list" class="decision-list"></div>
+      </section>
+    </section>
+    <footer> SINAL · Perceba antes. Decida melhor. <span>Protótipo acadêmico</span></footer>
+  </main>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
